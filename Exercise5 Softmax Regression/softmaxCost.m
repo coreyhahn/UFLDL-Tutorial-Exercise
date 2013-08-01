@@ -13,8 +13,8 @@ theta = reshape(theta, numClasses, inputSize);
 
 numCases = size(data, 2);
 
-%Õâ¸öº¯Êı¾ÍÊÇ½¨Á¢¾ØÕó£¬ÒÔlabelsÎªºá×ø±ê£¬1:numCasesÎª×İ×ø±êµÄÎ»ÖÃÖµÎª1£¬ÆäËûÎ»ÖÃÖµÎª0.
-% ¾ØÕóÎªM*N£¬M = max(labels); N = numCases
+%ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½labelsÎªï¿½ï¿½ï¿½ï¿½ï¿½ê£¬1:numCasesÎªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ÖµÎª1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ÖµÎª0.
+% ï¿½ï¿½ï¿½ï¿½ÎªM*Nï¿½ï¿½M = max(labels); N = numCases
 groundTruth = full(sparse(labels, 1:numCases, 1));
 cost = 0;
 
@@ -52,7 +52,7 @@ M = bsxfun(@minus, M, max(M, [], 1));
 p = exp(M) ./ repmat(sum(exp(M)), numClasses, 1);
 cost = -(1. / numCases) * sum(sum(groundTruth .* log(p))) + (lambda / 2.) * sum(sum(theta.^2));
 thetagrad = -(1. / numCases) * (groundTruth - p) * data' + lambda * theta;
-
+% I am not so sure this is correct
 
 
 
