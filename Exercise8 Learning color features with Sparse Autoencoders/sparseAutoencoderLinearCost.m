@@ -67,9 +67,9 @@ b1grad = zeros(size(b1));
 b2grad = zeros(size(b2));
 
 
-W1grad = (1. / m) * (delta2 * data') + lambda * W1;
+W1grad = (1. / m) * ((delta2 * data') + lambda * W1);
 b1grad = (1. / m) * sum(delta2, 2);
-W2grad = (1. / m) * delta3 * a2' + lambda * W2;
+W2grad = (1. / m) * (delta3 * a2' + lambda * W2);
 b2grad = (1. / m) * sum(delta3, 2);
 
 clear delta2;
